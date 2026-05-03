@@ -44,6 +44,21 @@ const APP_MODULES = [
   { icon: "♾️", title: "Forever Fund", desc: "Grow until returns cover your car and mortgage — forever." },
 ];
 
+const FOUNDERS = [
+  {
+    name: "Matt Garlock",
+    role: "Founder & Co-Host",
+    image: "/matt-garlock.jpg",
+    bio: "Placeholder bio — share your background, your why, and what you bring to the show. A few sentences on your story and your mission to help families build generational wealth. (Edit me.)",
+  },
+  {
+    name: "Andrew Higgins",
+    role: "Co-Host & Producer",
+    image: "/andrew-higgins.jpg",
+    bio: "Placeholder bio — share Andrew's background, what drew him to the project, and what he brings to every episode. A few sentences works great here. (Edit me.)",
+  },
+];
+
 function useScrollY() {
   const [y, setY] = useState(0);
   useEffect(() => {
@@ -61,7 +76,7 @@ function useInView(threshold = 0.15) {
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold });
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
-  }, []);
+  }, [threshold]);
   return [ref, visible];
 }
 
@@ -109,7 +124,6 @@ function EmailCapture({ label = "Get Free Access", placeholder = "your@email.com
 
 export default function Website() {
   const scrollY = useScrollY();
-  const [activeNav, setActiveNav] = useState(null);
   const [playingEp, setPlayingEp] = useState(null);
 
   return (
@@ -403,6 +417,34 @@ export default function Website() {
               <div style={{ position: "absolute", top: 20, right: -16, background: "linear-gradient(135deg,#C9973A,#A07828)", borderRadius: 10, padding: "10px 16px", fontSize: 12, color: "#0D1B2E", fontWeight: 700, boxShadow: "0 6px 20px rgba(201,151,58,0.4)" }}>Coming 2025</div>
             </div>
           </FadeIn>
+        </div>
+      </section>
+
+      {/* ── ABOUT US ── */}
+      <section style={{ padding: "100px 40px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+        <div style={{ maxWidth: 1140, margin: "0 auto" }}>
+          <FadeIn>
+            <div style={{ textAlign: "center", marginBottom: 64 }}>
+              <div style={{ fontSize: 11, color: "#C9973A", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: 14 }}>About Us</div>
+              <h2 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 48, color: "#E8D5A3", fontWeight: 700, marginBottom: 14 }}>The Voices Behind the Show</h2>
+              <p style={{ fontSize: 16, color: "#5A6B85", maxWidth: 560, margin: "0 auto" }}>Two parents on a mission to make generational wealth accessible — and to give every family a shot at owning a home.</p>
+            </div>
+          </FadeIn>
+
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 36 }}>
+            {FOUNDERS.map((person, i) => (
+              <FadeIn key={person.name} delay={i * 0.15}>
+                <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 20, padding: 36, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", height: "100%" }}>
+                  <div style={{ width: 180, height: 180, borderRadius: "50%", overflow: "hidden", marginBottom: 24, border: "2px solid rgba(201,151,58,0.4)", boxShadow: "0 8px 32px rgba(0,0,0,0.4), 0 0 40px rgba(201,151,58,0.1)", background: "rgba(255,255,255,0.04)" }}>
+                    <img src={person.image} alt={person.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                  </div>
+                  <div style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 30, color: "#E8D5A3", fontWeight: 700, marginBottom: 6 }}>{person.name}</div>
+                  <div style={{ fontSize: 11, color: "#C9973A", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: 18 }}>{person.role}</div>
+                  <p style={{ fontSize: 14, color: "#8B9BB4", lineHeight: 1.75, maxWidth: 360 }}>{person.bio}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
 
