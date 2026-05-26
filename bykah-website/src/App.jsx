@@ -290,7 +290,7 @@ export default function Website() {
             <div className="nav-logo-sub" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 11, color: "#C9973A", letterSpacing: "0.25em", textTransform: "uppercase" }}>A House</div>
           </div>
           <div className="nav-links-desktop" style={{ display: "flex", gap: 36, alignItems: "center" }}>
-            {NAV_LINKS.map(l => <span key={l} className="nav-link" style={{cursor:"pointer"}} onClick={() => { if (l === ""Tools We Use" window.location.href = "/tools"; }}>{l}</span>)}
+            {NAV_LINKS.map(l => <span key={l} className="nav-link" style={{cursor:"pointer"}} onClick={() => { if (l === "Tools We Use") window.location.href = "/tools"; }}>{l}</span>)}
             <button className="cta-btn nav-cta-desktop" style={{
               padding: "9px 22px", borderRadius: 8, border: "none",
               background: "linear-gradient(135deg,#C9973A,#A07828)",
@@ -313,7 +313,7 @@ export default function Website() {
       {/* ââ MOBILE DRAWER ââ */}
       <div className="mobile-drawer">
         {NAV_LINKS.map(l => (
-          <span key={l} className="nav-link" onClick={() => { setMobileMenu(false); if (l === ""Tools We Use" window.location.href = "/tools"; }}>{l}</span>
+          <span key={l} className="nav-link" onClick={() => { setMobileMenu(false); if (l === "Tools We Use") window.location.href = "/tools"; }}>{l}</span>
         ))}
         <button className="cta-btn" onClick={() => setMobileMenu(false)} style={{
           marginTop: 12, padding: "13px 22px", borderRadius: 10, border: "none",
