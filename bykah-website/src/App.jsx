@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from "react";
+import ToolsPage from "./ToolsPage";
 
 const NAV_LINKS = ["Tools", "The App", "Podcast", "YouTube", "Book", "About"];
 
 const BUZZSPROUT_RSS = "https://feeds.buzzsprout.com/2592972.rss";
-const YOUTUBE_UPLOADS_PLAYLIST = "UU4P62EIdue26eTmidTzg9Pw"; // UC → UU = channel's uploads playlist
+const YOUTUBE_UPLOADS_PLAYLIST = "UU4P62EIdue26eTmidTzg9Pw"; // UC â UU = channel's uploads playlist
 const YOUTUBE_CHANNEL_URL = "https://www.youtube.com/@BuyYourKidsAHousePodcast";
 
 // Kit (formerly ConvertKit) form IDs
@@ -11,9 +12,9 @@ const KIT_FORM_FREE_TOOLS = "9403068";
 const KIT_FORM_BOOK_WAITLIST = "9403081";
 
 const PLATFORMS = [
-  { name: "Spotify", color: "#1DB954", icon: "♪", url: "https://open.spotify.com/show/6qbo9eGFKCmqoIdNsDt9c0" },
-  { name: "Apple Podcasts", color: "#B150E2", icon: "🎙", url: "https://podcasts.apple.com/us/podcast/buy-your-kids-a-house/id1875387591" },
-  { name: "YouTube", color: "#FF0000", icon: "▶", url: "https://www.youtube.com/@BuyYourKidsAHousePodcast" },
+  { name: "Spotify", color: "#1DB954", icon: "âª", url: "https://open.spotify.com/show/6qbo9eGFKCmqoIdNsDt9c0" },
+  { name: "Apple Podcasts", color: "#B150E2", icon: "ð", url: "https://podcasts.apple.com/us/podcast/buy-your-kids-a-house/id1875387591" },
+  { name: "YouTube", color: "#FF0000", icon: "â¶", url: "https://www.youtube.com/@BuyYourKidsAHousePodcast" },
 ];
 
 const TOOLS = [
@@ -22,23 +23,23 @@ const TOOLS = [
     desc: "The foundation. Know exactly where every dollar goes each month.",
     tag: "Free Download",
     color: "#C9973A",
-    icon: "📊",
+    icon: "ð",
   },
   {
     title: "Debt Payoff Tracker",
     desc: "Snowball vs avalanche. See which method saves you more and when you'll be free.",
     tag: "Free Download",
     color: "#2471A3",
-    icon: "💳",
+    icon: "ð³",
   },
 ];
 
 const APP_MODULES = [
-  { icon: "📊", title: "Budget Tracker", desc: "Live 50-30-20 tracking synced to your bank accounts." },
-  { icon: "📈", title: "Investment Tracker", desc: "Watch your portfolio grow toward your Forever Number." },
-  { icon: "🎯", title: "Retirement Goal", desc: "Target amount, timeline, monthly contribution needed." },
-  { icon: "🏠", title: "Kids House Fund", desc: "Project future home prices and what to invest today." },
-  { icon: "♾️", title: "Forever Fund", desc: "Grow until returns cover your car and mortgage — forever." },
+  { icon: "ð", title: "Budget Tracker", desc: "Live 50-30-20 tracking synced to your bank accounts." },
+  { icon: "ð", title: "Investment Tracker", desc: "Watch your portfolio grow toward your Forever Number." },
+  { icon: "ð¯", title: "Retirement Goal", desc: "Target amount, timeline, monthly contribution needed." },
+  { icon: "ð ", title: "Kids House Fund", desc: "Project future home prices and what to invest today." },
+  { icon: "â¾ï¸", title: "Forever Fund", desc: "Grow until returns cover your car and mortgage â forever." },
 ];
 
 const FOUNDERS = [
@@ -46,13 +47,13 @@ const FOUNDERS = [
     name: "Matt Garlock",
     role: "Founder & Co-Host",
     image: "/matt-garlock.PNG",
-    bio: "Placeholder bio — share your background, your why, and what you bring to the show. A few sentences on your story and your mission to help families build generational wealth. (Edit me.)",
+    bio: "Placeholder bio â share your background, your why, and what you bring to the show. A few sentences on your story and your mission to help families build generational wealth. (Edit me.)",
   },
   {
     name: "Andrew Higgins",
     role: "Co-Host & Producer",
     image: "/Andrew-Higgins.JPG",
-    bio: "Placeholder bio — share Andrew's background, what drew him to the project, and what he brings to every episode. A few sentences works great here. (Edit me.)",
+    bio: "Placeholder bio â share Andrew's background, what drew him to the project, and what he brings to every episode. A few sentences works great here. (Edit me.)",
   },
 ];
 
@@ -94,7 +95,7 @@ function EmailCapture({
   placeholder = "your@email.com",
   dark = false,
   formId,
-  successMessage = "✓ Check your inbox — your free tool is on its way!",
+  successMessage = "â Check your inbox â your free tool is on its way!",
 }) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("idle"); // idle | submitting | done | error
@@ -162,7 +163,7 @@ function EmailCapture({
             opacity: status === "submitting" ? 0.7 : 1,
           }}
         >
-          {status === "submitting" ? "Sending…" : label}
+          {status === "submitting" ? "Sendingâ¦" : label}
         </button>
       </div>
       {status === "error" && (
@@ -177,6 +178,7 @@ function EmailCapture({
 export default function Website() {
   const scrollY = useScrollY();
   const [mobileMenu, setMobileMenu] = useState(false);
+  const isToolsPage = window.location.pathname.startsWith('/tools');
   const [episodes, setEpisodes] = useState(null); // null = loading, [] = error/empty
 
   useEffect(() => {
@@ -273,7 +275,7 @@ export default function Website() {
         }
       `}</style>
 
-      {/* ── NAV ── */}
+      {/* ââ NAV ââ */}
       <nav className="nav-pad" style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
         background: scrollY > 60 || mobileMenu ? "rgba(6,14,26,0.97)" : "transparent",
@@ -288,7 +290,7 @@ export default function Website() {
             <div className="nav-logo-sub" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 11, color: "#C9973A", letterSpacing: "0.25em", textTransform: "uppercase" }}>A House</div>
           </div>
           <div className="nav-links-desktop" style={{ display: "flex", gap: 36, alignItems: "center" }}>
-            {NAV_LINKS.map(l => <span key={l} className="nav-link">{l}</span>)}
+            {NAV_LINKS.map(l => <span key={l} className="nav-link" style={{cursor:"pointer"}} onClick={() => { if (l === "Tools") window.location.href = "/tools"; }}>{l}</span>)}
             <button className="cta-btn nav-cta-desktop" style={{
               padding: "9px 22px", borderRadius: 8, border: "none",
               background: "linear-gradient(135deg,#C9973A,#A07828)",
@@ -308,10 +310,10 @@ export default function Website() {
         </div>
       </nav>
 
-      {/* ── MOBILE DRAWER ── */}
+      {/* ââ MOBILE DRAWER ââ */}
       <div className="mobile-drawer">
         {NAV_LINKS.map(l => (
-          <span key={l} className="nav-link" onClick={() => setMobileMenu(false)}>{l}</span>
+          <span key={l} className="nav-link" onClick={() => { setMobileMenu(false); if (l === "Tools") window.location.href = "/tools"; }}>{l}</span>
         ))}
         <button className="cta-btn" onClick={() => setMobileMenu(false)} style={{
           marginTop: 12, padding: "13px 22px", borderRadius: 10, border: "none",
@@ -321,7 +323,9 @@ export default function Website() {
         }}>Try the App</button>
       </div>
 
-      {/* ── HERO ── */}
+      {/* ââ HERO ââ */}
+      {isToolsPage && <ToolsPage />}
+      {!isToolsPage && <>
       <section className="hero-section" style={{ minHeight: "100vh", display: "flex", alignItems: "center", position: "relative", padding: "120px 40px 80px", overflow: "hidden" }}>
         {/* Background orbs */}
         <div style={{ position: "absolute", top: "10%", right: "-5%", width: 600, height: 600, borderRadius: "50%", background: "radial-gradient(circle,rgba(201,151,58,0.07) 0%,transparent 70%)", pointerEvents: "none" }} />
@@ -343,7 +347,7 @@ export default function Website() {
             </h1>
 
             <p style={{ fontSize: 17, color: "#5A6B85", lineHeight: 1.75, maxWidth: 480, marginBottom: 40 }}>
-              The tools, strategies, and community to build generational wealth — starting with a plan to put your kids in a home before they ever ask for help.
+              The tools, strategies, and community to build generational wealth â starting with a plan to put your kids in a home before they ever ask for help.
             </p>
 
             <div className="cta-button-row" style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 48 }}>
@@ -352,7 +356,7 @@ export default function Website() {
                 background: "linear-gradient(135deg,#C9973A,#A07828)",
                 color: "#0D1B2E", fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: 15,
                 boxShadow: "0 8px 32px rgba(201,151,58,0.3)",
-              }}>Start With Free Tools →</button>
+              }}>Start With Free Tools â</button>
               <button className="cta-btn" style={{
                 padding: "15px 32px", borderRadius: 12,
                 border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.04)",
@@ -375,7 +379,7 @@ export default function Website() {
             <div style={{ background: "linear-gradient(135deg,rgba(201,151,58,0.12),rgba(201,151,58,0.03))", border: "1px solid rgba(201,151,58,0.2)", borderRadius: 24, padding: 36 }}>
               <div style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.12em", color: "#C9973A", marginBottom: 10 }}>Your Forever Number</div>
               <div className="forever-amount" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 52, color: "#E8D5A3", fontWeight: 700, marginBottom: 6 }}>$85,714</div>
-              <div style={{ fontSize: 13, color: "#5A6B85", marginBottom: 28 }}>Invest this → earn $500/mo forever without touching principal</div>
+              <div style={{ fontSize: 13, color: "#5A6B85", marginBottom: 28 }}>Invest this â earn $500/mo forever without touching principal</div>
 
               <div style={{ marginBottom: 24 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
@@ -392,7 +396,7 @@ export default function Website() {
                   ["Current Portfolio", "$42,580"],
                   ["Monthly Return", "$248"],
                   ["Car Covered in", "Year 6"],
-                  ["Kids Fund", "On Track ✓"],
+                  ["Kids Fund", "On Track â"],
                 ].map(([l, v]) => (
                   <div key={l} style={{ background: "rgba(255,255,255,0.04)", borderRadius: 10, padding: "12px 14px" }}>
                     <div style={{ fontSize: 10, color: "#3A4D65", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>{l}</div>
@@ -408,13 +412,13 @@ export default function Website() {
         </div>
       </section>
 
-      {/* ── FREE TOOLS ── */}
+      {/* ââ FREE TOOLS ââ */}
       <section className="section-pad" style={{ padding: "100px 40px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
         <div style={{ maxWidth: 1140, margin: "0 auto" }}>
           <FadeIn>
             <div style={{ textAlign: "center", marginBottom: 64 }}>
               <div style={{ fontSize: 11, color: "#C9973A", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: 14 }}>Free Resources</div>
-              <h2 className="h-section" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 48, color: "#E8D5A3", fontWeight: 700, marginBottom: 14 }}>Start Here — It's Free</h2>
+              <h2 className="h-section" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 48, color: "#E8D5A3", fontWeight: 700, marginBottom: 14 }}>Start Here â It's Free</h2>
               <p style={{ fontSize: 16, color: "#5A6B85", maxWidth: 480, margin: "0 auto" }}>Two powerful Excel tools to get your finances organized today. No credit card. No catch.</p>
             </div>
           </FadeIn>
@@ -433,7 +437,7 @@ export default function Website() {
                     placeholder="Enter your email"
                     dark
                     formId={KIT_FORM_FREE_TOOLS}
-                    successMessage="✓ Check your inbox — your tool is on its way!"
+                    successMessage="â Check your inbox â your tool is on its way!"
                   />
                 </div>
               </FadeIn>
@@ -442,7 +446,7 @@ export default function Website() {
         </div>
       </section>
 
-      {/* ── THE APP ── */}
+      {/* ââ THE APP ââ */}
       <section className="section-pad" style={{ padding: "100px 40px", background: "rgba(255,255,255,0.02)", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
         <div style={{ maxWidth: 1140, margin: "0 auto" }}>
           <FadeIn>
@@ -478,27 +482,27 @@ export default function Website() {
             <div className="connect-panel" style={{ background: "linear-gradient(135deg,rgba(201,151,58,0.1),rgba(201,151,58,0.03))", border: "1px solid rgba(201,151,58,0.2)", borderRadius: 20, padding: "36px 40px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 40, flexWrap: "wrap" }}>
               <div>
                 <div style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 28, color: "#E8D5A3", fontWeight: 700, marginBottom: 8 }}>Connect your accounts. Track automatically.</div>
-                <div style={{ fontSize: 14, color: "#5A6B85" }}>Powered by Plaid — bank-level security, read-only access. Your Forever Fund progress updates in real time.</div>
+                <div style={{ fontSize: 14, color: "#5A6B85" }}>Powered by Plaid â bank-level security, read-only access. Your Forever Fund progress updates in real time.</div>
               </div>
               <button className="cta-btn" style={{
                 padding: "15px 36px", borderRadius: 12, border: "none",
                 background: "linear-gradient(135deg,#C9973A,#A07828)",
                 color: "#0D1B2E", fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: 15,
                 boxShadow: "0 8px 32px rgba(201,151,58,0.3)", whiteSpace: "nowrap",
-              }}>Start Free — Upgrade Anytime →</button>
+              }}>Start Free â Upgrade Anytime â</button>
             </div>
           </FadeIn>
         </div>
       </section>
 
-      {/* ── PODCAST ── */}
+      {/* ââ PODCAST ââ */}
       <section className="section-pad" style={{ padding: "100px 40px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
         <div style={{ maxWidth: 1140, margin: "0 auto" }}>
           <FadeIn>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
               <div style={{ fontSize: 11, color: "#C9973A", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: 14 }}>The Podcast</div>
               <h2 className="h-section" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 48, color: "#E8D5A3", fontWeight: 700, marginBottom: 14 }}>New Episodes Every Week</h2>
-              <p style={{ fontSize: 16, color: "#5A6B85", maxWidth: 480, margin: "0 auto 36px" }}>Real strategies for parents who want to give their kids a head start — not just talk about it.</p>
+              <p style={{ fontSize: 16, color: "#5A6B85", maxWidth: 480, margin: "0 auto 36px" }}>Real strategies for parents who want to give their kids a head start â not just talk about it.</p>
               <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                 {PLATFORMS.map(p => (
                   <a key={p.name} href={p.url} target="_blank" rel="noopener noreferrer" className="platform-btn" style={{
@@ -518,10 +522,10 @@ export default function Website() {
 
           <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 20, overflow: "hidden" }}>
             {episodes === null ? (
-              <div style={{ padding: "32px 28px", textAlign: "center", color: "#5A6B85", fontSize: 14 }}>Loading episodes…</div>
+              <div style={{ padding: "32px 28px", textAlign: "center", color: "#5A6B85", fontSize: 14 }}>Loading episodesâ¦</div>
             ) : episodes.length === 0 ? (
               <div style={{ padding: "32px 28px", textAlign: "center", color: "#5A6B85", fontSize: 14 }}>
-                Couldn't load episodes. <a href={`https://www.buzzsprout.com/2592972`} target="_blank" rel="noopener noreferrer" style={{ color: "#C9973A" }}>Listen on Buzzsprout →</a>
+                Couldn't load episodes. <a href={`https://www.buzzsprout.com/2592972`} target="_blank" rel="noopener noreferrer" style={{ color: "#C9973A" }}>Listen on Buzzsprout â</a>
               </div>
             ) : (
               episodes.map((ep, i) => (
@@ -530,7 +534,7 @@ export default function Website() {
                     <div className="ep-row ep-row-pad"
                       style={{ padding: "20px 28px", borderBottom: i < episodes.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none", display: "flex", alignItems: "center", gap: 20, background: "transparent" }}>
                       <div style={{ width: 40, height: 40, borderRadius: 10, background: "rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontSize: 14, color: "#5A6B85", transition: "all 0.2s" }}>
-                        ▶
+                        â¶
                       </div>
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div style={{ fontSize: 11, color: "#3A4D65", marginBottom: 4, letterSpacing: "0.06em" }}>EP. {ep.ep}</div>
@@ -546,7 +550,7 @@ export default function Website() {
         </div>
       </section>
 
-      {/* ── YOUTUBE ── */}
+      {/* ââ YOUTUBE ââ */}
       <section className="section-pad" style={{ padding: "100px 40px", background: "rgba(255,255,255,0.02)", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
         <div style={{ maxWidth: 1140, margin: "0 auto" }}>
           <FadeIn>
@@ -561,7 +565,7 @@ export default function Website() {
             <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, borderRadius: 16, overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)", boxShadow: "0 12px 48px rgba(0,0,0,0.4)" }}>
               <iframe
                 src={`https://www.youtube.com/embed/videoseries?list=${YOUTUBE_UPLOADS_PLAYLIST}`}
-                title="Buy Your Kids A House Podcast — YouTube"
+                title="Buy Your Kids A House Podcast â YouTube"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
                 style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: 0 }}
@@ -576,12 +580,12 @@ export default function Website() {
               border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.04)",
               color: "#CBD5E8", fontFamily: "'DM Sans',sans-serif", fontWeight: 500, fontSize: 14,
               textDecoration: "none",
-            }}>Subscribe on YouTube →</a>
+            }}>Subscribe on YouTube â</a>
           </div>
         </div>
       </section>
 
-      {/* ── BOOK ── */}
+      {/* ââ BOOK ââ */}
       <section className="section-pad" style={{ padding: "100px 40px", background: "rgba(255,255,255,0.02)", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
         <div className="g-2col" style={{ maxWidth: 1140, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}>
           <FadeIn>
@@ -589,7 +593,7 @@ export default function Website() {
               <div style={{ fontSize: 11, color: "#C9973A", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: 14 }}>Coming Soon</div>
               <h2 className="h-book" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 52, color: "#E8D5A3", fontWeight: 700, lineHeight: 1.1, marginBottom: 20 }}>The Book is<br /><span style={{ fontStyle: "italic" }}>Coming.</span></h2>
               <p style={{ fontSize: 16, color: "#5A6B85", lineHeight: 1.75, marginBottom: 32 }}>
-                Everything you've heard on the podcast — the Forever Fund, the Kids House strategy, the debt payoff system — in one complete guide for parents who want to build real generational wealth.
+                Everything you've heard on the podcast â the Forever Fund, the Kids House strategy, the debt payoff system â in one complete guide for parents who want to build real generational wealth.
               </p>
               <div style={{ marginBottom: 24 }}>
                 <div style={{ fontSize: 13, color: "#8B9BB4", marginBottom: 14 }}>Join the waitlist. Get early access + founding reader pricing.</div>
@@ -598,7 +602,7 @@ export default function Website() {
                   placeholder="your@email.com"
                   dark
                   formId={KIT_FORM_BOOK_WAITLIST}
-                  successMessage="✓ You're on the waitlist — we'll be in touch."
+                  successMessage="â You're on the waitlist â we'll be in touch."
                 />
               </div>
               <div style={{ fontSize: 12, color: "#3A4D65" }}>1,200+ already on the waitlist</div>
@@ -624,14 +628,14 @@ export default function Website() {
         </div>
       </section>
 
-      {/* ── ABOUT US ── */}
+      {/* ââ ABOUT US ââ */}
       <section className="section-pad" style={{ padding: "100px 40px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
         <div style={{ maxWidth: 1140, margin: "0 auto" }}>
           <FadeIn>
             <div style={{ textAlign: "center", marginBottom: 64 }}>
               <div style={{ fontSize: 11, color: "#C9973A", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: 14 }}>About Us</div>
               <h2 className="h-section" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 48, color: "#E8D5A3", fontWeight: 700, marginBottom: 14 }}>The Voices Behind the Show</h2>
-              <p style={{ fontSize: 16, color: "#5A6B85", maxWidth: 560, margin: "0 auto" }}>Two parents on a mission to make generational wealth accessible — and to give every family a shot at owning a home.</p>
+              <p style={{ fontSize: 16, color: "#5A6B85", maxWidth: 560, margin: "0 auto" }}>Two parents on a mission to make generational wealth accessible â and to give every family a shot at owning a home.</p>
             </div>
           </FadeIn>
 
@@ -652,7 +656,7 @@ export default function Website() {
         </div>
       </section>
 
-      {/* ── FINAL CTA ── */}
+      {/* ââ FINAL CTA ââ */}
       <section className="section-pad" style={{ padding: "100px 40px", borderTop: "1px solid rgba(255,255,255,0.05)", textAlign: "center" }}>
         <div style={{ maxWidth: 680, margin: "0 auto" }}>
           <FadeIn>
@@ -667,7 +671,7 @@ export default function Website() {
                 background: "linear-gradient(135deg,#C9973A,#A07828)",
                 color: "#0D1B2E", fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: 16,
                 boxShadow: "0 8px 32px rgba(201,151,58,0.35)",
-              }}>Get the Free Tools →</button>
+              }}>Get the Free Tools â</button>
               <button className="cta-btn" style={{
                 padding: "16px 40px", borderRadius: 12,
                 border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.04)",
@@ -677,13 +681,14 @@ export default function Website() {
           </FadeIn>
         </div>
       </section>
+      </>}
 
-      {/* ── FOOTER ── */}
+      {/* ââ FOOTER ââ */}
       <footer style={{ borderTop: "1px solid rgba(255,255,255,0.05)", padding: "40px 24px" }}>
         <div className="footer-flex" style={{ maxWidth: 1140, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 20 }}>
           <div>
             <div style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 18, color: "#E8D5A3", fontWeight: 700 }}>Buy Your Kids A House</div>
-            <div style={{ fontSize: 12, color: "#3A4D65", marginTop: 4 }}>© 2025 · For educational purposes only. Not financial advice.</div>
+            <div style={{ fontSize: 12, color: "#3A4D65", marginTop: 4 }}>Â© 2025 Â· For educational purposes only. Not financial advice.</div>
           </div>
           <div style={{ display: "flex", gap: 32 }}>
             {["Privacy", "Terms", "Contact", "YouTube", "Instagram"].map(l => (
