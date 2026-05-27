@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export default function AuditPage() {
-  const [waitlistName, setWaitlistName] = useState('');
-  const [waitlistEmail, setWaitlistEmail] = useState('');
 
   const tiers = [
     {
