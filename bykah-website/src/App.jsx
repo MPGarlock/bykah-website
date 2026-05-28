@@ -634,34 +634,6 @@ export default function Website() {
         </div>
       </section>
 
-      {/*  ABOUT US  */}
-      <section className="section-pad" style={{ padding: "100px 40px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-        <div style={{ maxWidth: 1140, margin: "0 auto" }}>
-          <FadeIn>
-            <div style={{ textAlign: "center", marginBottom: 64 }}>
-              <div style={{ fontSize: 11, color: "#C9973A", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: 14 }}>About Us</div>
-              <h2 className="h-section" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 48, color: "#E8D5A3", fontWeight: 700, marginBottom: 14 }}>The Voices Behind the Show</h2>
-              <p style={{ fontSize: 16, color: "#5A6B85", maxWidth: 560, margin: "0 auto" }}>Two parents on a mission to make generational wealth accessible  and to give every family a shot at owning a home.</p>
-            </div>
-          </FadeIn>
-
-          <div className="g-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 36 }}>
-            {FOUNDERS.map((person, i) => (
-              <FadeIn key={person.name} delay={i * 0.15}>
-                <div className="about-card-pad" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 20, padding: 36, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", height: "100%" }}>
-                  <div className="about-img" style={{ width: 180, height: 180, borderRadius: "50%", overflow: "hidden", marginBottom: 24, border: "2px solid rgba(201,151,58,0.4)", boxShadow: "0 8px 32px rgba(0,0,0,0.4), 0 0 40px rgba(201,151,58,0.1)", background: "rgba(255,255,255,0.04)" }}>
-                    <img src={person.image} alt={person.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-                  </div>
-                  <div className="h-about" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 30, color: "#E8D5A3", fontWeight: 700, marginBottom: 6 }}>{person.name}</div>
-                  <div style={{ fontSize: 11, color: "#C9973A", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: 18 }}>{person.role}</div>
-                  <p style={{ fontSize: 14, color: "#8B9BB4", lineHeight: 1.75, maxWidth: 360 }}>{person.bio}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/*  FINAL CTA  */}
       <section className="section-pad" style={{ padding: "100px 40px", borderTop: "1px solid rgba(255,255,255,0.05)", textAlign: "center" }}>
         <div style={{ maxWidth: 680, margin: "0 auto" }}>
