@@ -44,21 +44,6 @@ const APP_MODULES = [
   { icon: "", title: "Forever Fund", desc: "Grow until returns cover your car and mortgage  forever." },
 ];
 
-const FOUNDERS = [
-  {
-    name: "Matt Garlock",
-    role: "Founder & Co-Host",
-    image: "/matt-garlock.PNG",
-    bio: "Placeholder bio  share your background, your why, and what you bring to the show. A few sentences on your story and your mission to help families build generational wealth. (Edit me.)",
-  },
-  {
-    name: "Andrew Higgins",
-    role: "Co-Host & Producer",
-    image: "/Andrew-Higgins.JPG",
-    bio: "Placeholder bio  share Andrew's background, what drew him to the project, and what he brings to every episode. A few sentences works great here. (Edit me.)",
-  },
-];
-
 function useScrollY() {
   const [y, setY] = useState(0);
   useEffect(() => {
