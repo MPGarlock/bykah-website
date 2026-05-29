@@ -279,8 +279,8 @@ export default function Website() {
             <div className="nav-logo-sub" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 11, color: "#C9973A", letterSpacing: "0.25em", textTransform: "uppercase" }}>A House</div>
           </div>
           <div className="nav-links-desktop" style={{ display: "flex", gap: 36, alignItems: "center" }}>
-            {NAV_LINKS.map(l => <span key={l} className="nav-link" style={{cursor:"pointer"}} onClick={() => { if (l === "Home") window.location.href = "/"; if (l === "Tools We Use") window.location.href = "/tools"; if (l === "Work With Us") window.location.href = "/audit"; if (l === "About") window.location.href = "/about"; if (l === "App") window.open("https://bykah-app.vercel.app", "_blank"); }}>{l}</span>)}
-            <button className="cta-btn nav-cta-desktop" onClick={() => window.open("https://bykah-app.vercel.app", "_blank")} style={{
+            {NAV_LINKS.map(l => <span key={l} className="nav-link" style={{cursor:"pointer"}} onClick={() => { if (l === "Home") window.location.href = "/"; if (l === "Tools We Use") window.location.href = "/tools"; if (l === "Work With Us") window.location.href = "/audit"; if (l === "About") window.location.href = "/about"; if (l === "App") window.open("https://app.buyyourkidsahouse.com", "_blank"); }}>{l}</span>)}
+            <button className="cta-btn nav-cta-desktop" onClick={() => window.open("https://app.buyyourkidsahouse.com", "_blank")} style={{
               padding: "9px 22px", borderRadius: 8, border: "none",
               background: "linear-gradient(135deg,#C9973A,#A07828)",
               color: "#0D1B2E", fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: 13,
@@ -302,9 +302,9 @@ export default function Website() {
       {/*  MOBILE DRAWER  */}
       <div className="mobile-drawer">
         {NAV_LINKS.map(l => (
-          <span key={l} className="nav-link" onClick={() => { setMobileMenu(false); if (l === "Home") window.location.href = "/"; if (l === "Tools We Use") window.location.href = "/tools"; if (l === "Work With Us") window.location.href = "/audit"; if (l === "About") window.location.href = "/about"; if (l === "App") window.open("https://bykah-app.vercel.app", "_blank"); }}>{l}</span>
+          <span key={l} className="nav-link" onClick={() => { setMobileMenu(false); if (l === "Home") window.location.href = "/"; if (l === "Tools We Use") window.location.href = "/tools"; if (l === "Work With Us") window.location.href = "/audit"; if (l === "About") window.location.href = "/about"; if (l === "App") window.open("https://app.buyyourkidsahouse.com", "_blank"); }}>{l}</span>
         ))}
-        <button className="cta-btn" onClick={() => { setMobileMenu(false); window.open("https://bykah-app.vercel.app", "_blank"); }} style={{
+        <button className="cta-btn" onClick={() => { setMobileMenu(false); window.open("https://app.buyyourkidsahouse.com", "_blank"); }} style={{
           marginTop: 12, padding: "13px 22px", borderRadius: 10, border: "none",
           background: "linear-gradient(135deg,#C9973A,#A07828)",
           color: "#0D1B2E", fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: 14,
@@ -353,7 +353,7 @@ export default function Website() {
                 border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.04)",
                 color: "#CBD5E8", fontFamily: "'DM Sans',sans-serif", fontWeight: 500, fontSize: 15, cursor: "pointer",
               }}>Listen to the Podcast</button>
-                <button className="cta-btn" onClick={() => window.open("https://bykah-app.vercel.app", "_blank")} style={{ padding: "15px 32px", borderRadius: 12, border: "none", background: "#C9973A", color: "#0A1628", fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: 15, boxShadow: "0 8px 32px rgba(201,151,58,0.3)" }}>Launch the App</button>
+                <button className="cta-btn" onClick={() => window.open("https://app.buyyourkidsahouse.com", "_blank")} style={{ padding: "15px 32px", borderRadius: 12, border: "none", background: "#C9973A", color: "#0A1628", fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: 15, boxShadow: "0 8px 32px rgba(201,151,58,0.3)" }}>Launch the App</button>
             </div>
 
             <div className="hero-stats" style={{ display: "flex", gap: 40 }}>
@@ -481,7 +481,7 @@ export default function Website() {
                 background: "linear-gradient(135deg,#C9973A,#A07828)",
                 color: "#0D1B2E", fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: 15,
                 boxShadow: "0 8px 32px rgba(201,151,58,0.3)", whiteSpace: "nowrap",
-              }} onClick={() => window.open("https://bykah-app.vercel.app", "_blank")}>Start Free  Upgrade Anytime </button>
+              }} onClick={() => window.open("https://app.buyyourkidsahouse.com", "_blank")}>Start Free  Upgrade Anytime </button>
             </div>
           </FadeIn>
         </div>
@@ -627,7 +627,7 @@ export default function Website() {
             <div style={{ fontSize: 11, color: "#C9973A", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: 14 }}>Now Available</div>
             <h2 className="h-section" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 48, color: "#E8D5A3", fontWeight: 700, marginBottom: 20 }}>The BYKAH App</h2>
             <p style={{ fontSize: 17, color: "#5A6B85", lineHeight: 1.75, maxWidth: 560, margin: "0 auto 40px" }}>Track your Forever Fund, budget your 50/30/20, run the house and car calculators - all in one place.</p>
-            <button className="cta-btn" onClick={() => window.open("https://bykah-app.vercel.app", "_blank")} style={{ padding: "16px 44px", borderRadius: 12, border: "none", background: "#C9973A", color: "#0A1628", fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: 16, boxShadow: "0 8px 32px rgba(201,151,58,0.35)" }}>Open the App</button>
+            <button className="cta-btn" onClick={() => window.open("https://app.buyyourkidsahouse.com", "_blank")} style={{ padding: "16px 44px", borderRadius: 12, border: "none", background: "#C9973A", color: "#0A1628", fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: 16, boxShadow: "0 8px 32px rgba(201,151,58,0.35)" }}>Open the App</button>
           </FadeIn>
         </div>
       </section>
