@@ -98,12 +98,12 @@ function EmailCapture({
     setStatus("submitting");
     setErrorMsg("");
     try {
-      const formData = new FormData();
-      formData.append("email_address", email);
-      const res = await fetch(`https://app.kit.com/forms/${formId}/subscriptions`, {
+      const body = new URLSearchParams();
+        body.append("email_address", email);
+      const res = await fetch(`https://app.convertkit.com/forms/${formId}/subscriptions`, {
         method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
+        body: body.toString(),
+          headers: { "Content-Type": "application/x-www-form-urlencoded", Accept: "application/json" },
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setStatus("done");
@@ -115,7 +115,7 @@ function EmailCapture({
 
   if (status === "done") {
     return (
-      <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 14, color: "#5DBF85", padding: "12px 0" }}>
+      <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 14, color: "#C9973A", padding: "12px 0" }}>
         {successMessage}
       </div>
     );
