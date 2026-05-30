@@ -4,7 +4,7 @@ import AuditPage from './AuditPage';
 import AboutPage from './AboutPage';
 import FindUsPage from './FindUsPage';
 
-const NAV_LINKS = ["Home", "Tools We Use", "Work With Us", "App", "Podcast", "YouTube", "Book", "About"];
+const NAV_LINKS = ["Home", "Tools We Use", "Work With Us", "App", "Find Us", "Book", "About"];
 const BUZZSPROUT_RSS = "https://feeds.buzzsprout.com/2592972.rss";
 const YOUTUBE_UPLOADS_PLAYLIST = "UU4P62EIdue26eTmidTzg9Pw"; // UC UU = channel's uploads playlist
 const YOUTUBE_CHANNEL_URL = "https://www.youtube.com/@BuyYourKidsAHousePodcast";
@@ -298,8 +298,7 @@ export default function Website() {
               if (l === "Tools We Use") window.location.href = "/tools";
               if (l === "Work With Us") window.location.href = "/audit";
               if (l === "About") window.location.href = "/about";
-              if (l === "Podcast") window.location.href = "/find-us";
-              if (l === "YouTube") window.location.href = "/find-us";
+                        if (l === "Find Us") window.location.href = "/find-us";
               if (l === "App") window.open("https://app.buyyourkidsahouse.com", "_blank");
             }}>{l}</span>)}
             <button className="cta-btn nav-cta-desktop"
@@ -328,8 +327,7 @@ export default function Website() {
             if (l === "Tools We Use") window.location.href = "/tools";
             if (l === "Work With Us") window.location.href = "/audit";
             if (l === "About") window.location.href = "/about";
-            if (l === "Podcast") window.location.href = "/find-us";
-            if (l === "YouTube") window.location.href = "/find-us";
+                            if (l === "Find Us") window.location.href = "/find-us";
             if (l === "App") window.open("https://app.buyyourkidsahouse.com", "_blank");
           }}>{l}</span>
         ))}
