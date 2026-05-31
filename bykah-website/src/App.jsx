@@ -3,8 +3,9 @@ import ToolsPage from "./ToolsPage";
 import AuditPage from './AuditPage';
 import AboutPage from './AboutPage';
 import FindUsPage from './FindUsPage';
+import PodcastPage from './PodcastPage';
 
-const NAV_LINKS = ["Home", "Tools We Use", "Work With Us", "App", "Find Us", "Book", "About"];
+const NAV_LINKS = ["Home", "Tools We Use", "Work With Us", "App", "Find Us", "Podcast", "Book", "About"];
 const BUZZSPROUT_RSS = "https://feeds.buzzsprout.com/2592972.rss";
 const YOUTUBE_UPLOADS_PLAYLIST = "UU4P62EIdue26eTmidTzg9Pw"; // UC UU = channel's uploads playlist
 const YOUTUBE_CHANNEL_URL = "https://www.youtube.com/@BuyYourKidsAHousePodcast";
@@ -181,6 +182,7 @@ export default function Website() {
   const isAuditPage = window.location.pathname.startsWith('/audit');
   const isAboutPage = window.location.pathname.startsWith('/about');
   const isFindUsPage = window.location.pathname.startsWith('/find-us');
+  const isPodcastPage = window.location.pathname === '/podcast';
 
   const [episodes, setEpisodes] = useState(null); // null = loading, [] = error/empty
 
@@ -299,6 +301,7 @@ export default function Website() {
               if (l === "Work With Us") window.location.href = "/audit";
               if (l === "About") window.location.href = "/about";
                         if (l === "Find Us") window.location.href = "/find-us";
+        if (l === "Podcast") window.location.href = "/podcast";
               if (l === "App") window.open("https://app.buyyourkidsahouse.com", "_blank");
             }}>{l}</span>)}
             <button className="cta-btn nav-cta-desktop"
@@ -328,6 +331,7 @@ export default function Website() {
             if (l === "Work With Us") window.location.href = "/audit";
             if (l === "About") window.location.href = "/about";
                             if (l === "Find Us") window.location.href = "/find-us";
+        if (l === "Podcast") window.location.href = "/podcast";
             if (l === "App") window.open("https://app.buyyourkidsahouse.com", "_blank");
           }}>{l}</span>
         ))}
@@ -344,8 +348,9 @@ export default function Website() {
       {isAuditPage && <AuditPage />}
       {isAboutPage && <AboutPage />}
       {isFindUsPage && <FindUsPage />}
+      {isPodcastPage && <PodcastPage />}
 
-      {!isToolsPage && !isAuditPage && !isAboutPage && !isFindUsPage && <>
+      {!isToolsPage && !isAuditPage && !isAboutPage && !isFindUsPage && !isPodcastPage && <>
 
       {/* HERO */}
       <section className="hero-section" style={{ minHeight: "100vh", display: "flex", alignItems: "center", position: "relative", padding: "120px 40px 80px", overflow: "hidden" }}>
