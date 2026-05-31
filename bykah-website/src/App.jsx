@@ -9,9 +9,10 @@ const NAV_LINKS = ["Home", "Tools We Use", "Work With Us", "App", "Find Us", "Po
 const BUZZSPROUT_RSS = "https://feeds.buzzsprout.com/2592972.rss";
 const YOUTUBE_UPLOADS_PLAYLIST = "UU4P62EIdue26eTmidTzg9Pw"; // UC UU = channel's uploads playlist
 const YOUTUBE_CHANNEL_URL = "https://www.youtube.com/@BuyYourKidsAHousePodcast";
-// Kit (formerly ConvertKit) form IDs
-const KIT_FORM_FREE_TOOLS = "9403068";
-const KIT_FORM_BOOK_WAITLIST = "9403081";
+// Mailchimp form credentials
+const MAILCHIMP_U = "233ec063ffa02400e45e1fdf1";
+const MAILCHIMP_LIST_ID = "8bda1dd6ab";
+const MAILCHIMP_URL = "https://buyyourkidsahouse.us19.list-manage.com/subscribe/post";
 
 const PLATFORMS = [
   { name: "Spotify", color: "#1DB954", icon: "", url: "https://open.spotify.com/show/6qbo9eGFKCmqoIdNsDt9c0" },
@@ -99,15 +100,16 @@ function EmailCapture({
     setStatus("submitting");
     setErrorMsg("");
     try {
-      const body = new URLSearchParams();
-        body.append("email_address", email);
-      const res = await fetch(`https://app.convertkit.com/forms/${formId}/subscriptions`, {
-        method: "POST",
-        body: body.toString(),
-          headers: { "Content-Type": "application/x-www-form-urlencoded", Accept: "application/json" },
-      });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      setStatus("done");
+const body = new URLSearchParams();
+              body.append("u", MAILCHIMP_U);
+              body.append("id", MAILCHIMP_LIST_ID);
+              body.append("EMAIL", email);
+              await fetch(MAILCHIMP_URL, {
+                          method: "POST",
+                          body: body.toString(),
+                          mode: "no-cors",
+              });
+              setStatus("done");
     } catch (err) {
       setErrorMsg("Something went wrong. Please try again.");
       setStatus("error");
