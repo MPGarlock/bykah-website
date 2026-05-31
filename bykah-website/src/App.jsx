@@ -188,6 +188,15 @@ export default function Website() {
   const isPodcastPage = window.location.pathname === '/podcast';
   const isTravelPage = window.location.pathname === '/travel';
 
+  // Dynamic page titles
+  if (typeof document !== 'undefined') {
+    if (isAuditPage) document.title = 'Work With Us | Buy Your Kids A House';
+    else if (isAboutPage) document.title = 'About | Buy Your Kids A House';
+    else if (isFindUsPage) document.title = 'Find Us | Buy Your Kids A House';
+    else if (isPodcastPage) document.title = 'Podcast | Buy Your Kids A House';
+    else if (isTravelPage) document.title = 'Travel Smart | Buy Your Kids A House';
+    else document.title = 'Buy Your Kids A House | BYKAH Podcast';
+  }
   const [episodes, setEpisodes] = useState(null); // null = loading, [] = error/empty
 
   useEffect(() => {
