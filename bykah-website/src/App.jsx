@@ -621,7 +621,32 @@ export default function Website() {
         </div>
       </section>
 
-      {/* FINAL CTA */}
+      {/* WORK WITH US */}
+<section className="section-pad" style={{ padding: "100px 40px", background: "#0d1f35", borderTop: "1px solid rgba(201,151,58,0.2)" }}>
+  <div style={{ maxWidth: 1100, margin: "0 auto", textAlign: "center" }}>
+    <FadeIn>
+      <div style={{ fontSize: 11, color: "#C9973A", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: 14 }}>Personal Finance Coaching</div>
+      <h2 className="h-section" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 48, color: "#C9973A", fontWeight: 700, marginBottom: 16 }}>Work With Us</h2>
+      <p style={{ color: "#CBD5E8", fontSize: "1.125rem", maxWidth: 600, margin: "0 auto 48px", lineHeight: 1.75 }}>A personalized 1:1 audit puts your 50/30/20 plan on paper and shows you exactly where your Forever Fund stands.</p>
+      <div style={{ display: "flex", gap: "24px", flexWrap: "wrap", justifyContent: "center", marginBottom: 40 }}>
+        {[
+          { name: "Podcast Edition Audit", price: "$97", desc: "30-minute 50/30/20 budget review via Zoom" },
+          { name: "Private Audit", price: "$197", desc: "Full 1:1 financial review - budget, Forever Fund, generational wealth plan" },
+          { name: "Generational Wealth Blueprint", price: "$497+", desc: "Comprehensive multi-session plan built around your family's goals" },
+        ].map((tier) => (
+          <div key={tier.name} style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,151,58,0.25)", borderRadius: 16, padding: "32px 28px", flex: "1", minWidth: 240, maxWidth: 320, textAlign: "left" }}>
+            <div style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 22, color: "#E8D5A3", fontWeight: 700, marginBottom: 8 }}>{tier.name}</div>
+            <div style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 32, color: "#C9973A", fontWeight: 700, marginBottom: 12 }}>{tier.price}</div>
+            <p style={{ fontSize: 14, color: "#5A6B85", lineHeight: 1.7 }}>{tier.desc}</p>
+          </div>
+        ))}
+      </div>
+      <button className="cta-btn" onClick={() => { window.location.href = '/audit'; }} style={{ background: "#C9973A", color: "#0A1628", border: "none", padding: "14px 32px", borderRadius: "8px", fontSize: "1rem", fontWeight: 700, cursor: "pointer" }}>Book an Audit -&gt;</button>
+    </FadeIn>
+  </div>
+</section>
+
+{/* FINAL CTA */}
       <section className="section-pad" style={{ padding: "100px 40px", borderTop: "1px solid rgba(255,255,255,0.05)", textAlign: "center" }}>
         <div style={{ maxWidth: 680, margin: "0 auto" }}>
           <FadeIn>
