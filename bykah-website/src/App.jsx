@@ -446,7 +446,7 @@ export default function Website() {
                   <div style={{ fontSize: 32, marginBottom: 14 }}>{tool.icon}</div>
                   <h3 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 26, color: "#E8D5A3", fontWeight: 700, marginBottom: 10 }}>{tool.title}</h3>
                   <p style={{ fontSize: 14, color: "#5A6B85", lineHeight: 1.7, marginBottom: 28 }}>{tool.desc}</p>
-                  <EmailCapture label="Download Free" placeholder="Enter your email" dark formId={KIT_FORM_FREE_TOOLS} successMessage=" Check your inbox your tool is on its way!" />
+                  <EmailCapture label="Download Free" placeholder="Enter your email" dark formId={MAILCHIMP_LIST_ID} successMessage=" Check your inbox your tool is on its way!" />
                 </div>
               </FadeIn>
             ))}
@@ -580,7 +580,7 @@ export default function Website() {
               </p>
               <div style={{ marginBottom: 24 }}>
                 <div style={{ fontSize: 13, color: "#8B9BB4", marginBottom: 14 }}>Join the waitlist. Get early access + founding reader pricing.</div>
-                <EmailCapture label="Join Waitlist" placeholder="your@email.com" dark formId={KIT_FORM_BOOK_WAITLIST} successMessage=" You're on the waitlist we'll be in touch." />
+                <EmailCapture label="Join Waitlist" placeholder="your@email.com" dark formId={MAILCHIMP_LIST_ID} successMessage=" You're on the waitlist we'll be in touch." />
               </div>
               <div style={{ fontSize: 12, color: "#3A4D65" }}>1,200+ already on the waitlist</div>
             </div>
