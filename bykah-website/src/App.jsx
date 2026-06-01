@@ -177,6 +177,65 @@ const body = new URLSearchParams();
   );
 }
 
+function FAQSection() {
+  const [openIndex, setOpenIndex] = useState(null);
+  const faqs = [
+    {
+      q: "What is the BYKAH method?",
+      a: "BYKAH stands for Buy Your Kids A House. The idea is simple - instead of just hoping your kids will be okay financially, you build generational wealth by using your investment returns to fund major purchases for them, starting with a house. We teach the 50/30/20 budget framework and the Forever Fund strategy to make this achievable for everyday families."
+    },
+    {
+      q: "What is the Forever Fund?",
+      a: "The Forever Fund is an invested portfolio that generates enough passive income to cover a recurring expense forever - without ever touching the principal. For example, a $10,000/year expense at a 4% withdrawal rate requires a $250,000 Forever Fund. The goal is to build Forever Funds for your family's biggest recurring costs so they never have to worry about them."
+    },
+    {
+      q: "What is the 50/30/20 rule and how is BYKAH different?",
+      a: "The standard 50/30/20 splits your take-home pay into 50% Needs, 30% Wants, and 20% Savings/Investments. The BYKAH version adjusts the Needs bucket to reflect reality: 25% housing (not 28%), 10% food, 10% car, and 10% health insurance. The old 28% housing rule was created before employer health insurance ate 10% of income - we think 25% is the right ceiling today."
+    },
+    {
+      q: "Is the BYKAH app free?",
+      a: "Yes, the core app is free. You get access to the dashboard, Forever Fund tracker, Kids House Fund, and the 50/30/20 budget planner. The Plus plan ($9/mo) unlocks advanced features like the Investment Tracker, Retirement Goal calculator, Can I Afford It? calculator, and subscription impact tracker."
+    },
+    {
+      q: "Who is a 1:1 audit for?",
+      a: "The audit is for anyone who wants a personalized plan instead of general advice. In a 30 to 60 minute Zoom call, we review your actual budget, calculate your Forever Number, and map out exactly what you need to do to start buying generational wealth. It works best for people who are earning but not sure where the money goes, or who want a second set of eyes on their plan."
+    },
+    {
+      q: "When is the book coming out?",
+      a: "We are actively working on it. Join the waitlist below to be the first to know when it launches - waitlist members get early access and a special price."
+    },
+    {
+      q: "Do I need to be a parent to benefit from BYKAH?",
+      a: "No. The strategies work whether you have kids now, plan to have them, or just want to build your own financial security. The Forever Fund concept and 50/30/20 framework help anyone build lasting wealth - kids are the motivation, not the requirement."
+    }
+  ];
+  return (
+    <section style={{ background: '#0A1628', padding: '80px 24px', borderTop: '1px solid rgba(201,151,58,0.2)' }}>
+      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+        <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '2.5rem', color: '#C9973A', textAlign: 'center', marginBottom: '48px' }}>
+          Frequently Asked Questions
+        </h2>
+        {faqs.map((item, i) => (
+          <div key={i} style={{ borderBottom: i < faqs.length - 1 ? '1px solid rgba(201,151,58,0.25)' : 'none' }}>
+            <button
+              onClick={() => setOpenIndex(openIndex === i ? null : i)}
+              style={{ width: '100%', background: 'none', border: 'none', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '24px 0', textAlign: 'left' }}
+            >
+              <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.25rem', color: '#C9973A', fontWeight: 600 }}>{item.q}</span>
+              <span style={{ color: '#C9973A', fontSize: '1.5rem', lineHeight: 1, flexShrink: 0, marginLeft: '16px' }}>{openIndex === i ? '-' : '+'}</span>
+            </button>
+            {openIndex === i && (
+              <div style={{ paddingBottom: '24px' }}>
+                <p style={{ color: '#CBD5E8', fontSize: '15px', lineHeight: '1.75' }}>{item.a}</p>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export default function Website() {
   const scrollY = useScrollY();
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -655,7 +714,9 @@ export default function Website() {
   </div>
 </section>
 
-{/* FINAL CTA */}
+{/* FAQ */}
+        <FAQSection />
+        {/* FINAL CTA */}
       <section className="section-pad" style={{ padding: "100px 40px", borderTop: "1px solid rgba(255,255,255,0.05)", textAlign: "center" }}>
         <div style={{ maxWidth: 680, margin: "0 auto" }}>
           <FadeIn>
