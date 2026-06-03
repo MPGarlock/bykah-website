@@ -87,6 +87,7 @@ function EmailCapture({
   placeholder = "your@email.com",
   dark = false,
   formId,
+  redirectUrl = "",
   successMessage = " Check your inbox your free tool is on its way!",
 }) {
   const [email, setEmail] = useState("");
@@ -247,6 +248,7 @@ export default function Website() {
   const isFindUsPage = window.location.pathname.startsWith('/find-us');
   const isPodcastPage = window.location.pathname === '/podcast';
   const isTravelPage = window.location.pathname === '/travel';
+  const isFreeToolsPage = window.location.pathname.startsWith('/free-tools');
 
   // Dynamic page titles
   if (typeof document !== 'undefined') {
@@ -370,6 +372,7 @@ export default function Website() {
           <div className="nav-links-desktop" style={{ display: "flex", gap: 36, alignItems: "center" }}>
             {NAV_LINKS.map(l => <span key={l} className="nav-link" style={{cursor:"pointer"}} onClick={() => {
               if (l === "Home") window.location.href = "/";
+              if (l === "Free Tools") window.location.href = "/free-tools";
               if (l === "Tools We Use") window.location.href = "/tools";
               if (l === "Work With Us") window.location.href = "/audit";
               if (l === "About") window.location.href = "/about";
@@ -401,6 +404,7 @@ export default function Website() {
           <span key={l} className="nav-link" onClick={() => {
             setMobileMenu(false);
             if (l === "Home") window.location.href = "/";
+            if (l === "Free Tools") window.location.href = "/free-tools";
             if (l === "Tools We Use") window.location.href = "/tools";
             if (l === "Work With Us") window.location.href = "/audit";
             if (l === "About") window.location.href = "/about";
@@ -427,7 +431,7 @@ export default function Website() {
       {isPodcastPage && <PodcastPage />}
       {isTravelPage && <TravelPage />}
 
-      {!isToolsPage && !isAuditPage && !isAboutPage && !isFindUsPage && !isPodcastPage && !isTravelPage && <>
+      {!isToolsPage && !isAuditPage && !isAboutPage && !isFindUsPage && !isFreeToolsPage && !isPodcastPage && !isTravelPage && <>
 
       {/* HERO */}
       <section className="hero-section" style={{ minHeight: "100vh", display: "flex", alignItems: "center", position: "relative", padding: "120px 40px 80px", overflow: "hidden" }}>
