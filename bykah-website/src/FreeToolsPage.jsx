@@ -3,9 +3,8 @@ export default function FreeToolsPage() {
     <div style={{ paddingTop: 80 }}>
       <section style={{ padding: "80px 40px 60px", textAlign: "center", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
         <div style={{ maxWidth: 720, margin: "0 auto" }}>
-          <div style={{ fontSize: 11, color: "#C9973A", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: 14 }}>No Email Required</div>
           <h1 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 60, color: "#E8D5A3", fontWeight: 700, lineHeight: 1.05, marginBottom: 20 }}>Free Tools</h1>
-          <p style={{ fontSize: 17, color: "#5A6B85", lineHeight: 1.75, maxWidth: 520, margin: "0 auto" }}>Two powerful spreadsheets to get your family's finances organized today. Download instantly — no sign-up needed.</p>
+          <p style={{ fontSize: 17, color: "#5A6B85", lineHeight: 1.75, maxWidth: 520, margin: "0 auto" }}>Two powerful spreadsheets to help your family build lasting wealth. Download instantly.</p>
         </div>
       </section>
 
