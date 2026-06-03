@@ -3,10 +3,11 @@ import ToolsPage from "./ToolsPage";
 import AuditPage from './AuditPage';
 import AboutPage from './AboutPage';
 import FindUsPage from './FindUsPage';
+import FreeToolsPage from './FreeToolsPage';
 import PodcastPage from './PodcastPage';
 import TravelPage from './TravelPage';
 
-const NAV_LINKS = ["Home", "Tools We Use", "Work With Us", "App", "Find Us", "Podcast", "Travel", "Book", "About"];
+const NAV_LINKS = ["Home", "Free Tools", "Tools We Use", "Work With Us", "App", "Find Us", "Podcast", "Travel", "Book", "About"];
 const BUZZSPROUT_RSS = "https://feeds.buzzsprout.com/2592972.rss";
 const YOUTUBE_UPLOADS_PLAYLIST = "UU4P62EIdue26eTmidTzg9Pw"; // UC UU = channel's uploads playlist
 const YOUTUBE_CHANNEL_URL = "https://www.youtube.com/@BuyYourKidsAHousePodcast";
@@ -110,7 +111,7 @@ const body = new URLSearchParams();
                           body: body.toString(),
                           mode: "no-cors",
               });
-              setStatus("done");
+              setStatus("done"); if (redirectUrl) { setTimeout(function() { window.location.href = redirectUrl; }, 1500); }
     } catch (err) {
       setErrorMsg("Something went wrong. Please try again.");
       setStatus("error");
@@ -422,6 +423,7 @@ export default function Website() {
       {isAuditPage && <AuditPage />}
       {isAboutPage && <AboutPage />}
       {isFindUsPage && <FindUsPage />}
+      {isFreeToolsPage && <FreeToolsPage />}
       {isPodcastPage && <PodcastPage />}
       {isTravelPage && <TravelPage />}
 
