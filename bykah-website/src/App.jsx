@@ -112,7 +112,7 @@ const body = new URLSearchParams();
                           body: body.toString(),
                           mode: "no-cors",
               });
-              setStatus("done"); if (redirectUrl) { setTimeout(function() { window.location.href = redirectUrl; }, 1500); }
+              if (redirectUrl) { window.location.href = redirectUrl; } else { setStatus("done"); }
     } catch (err) {
       setErrorMsg("Something went wrong. Please try again.");
       setStatus("error");
@@ -456,7 +456,7 @@ export default function Website() {
               The tools, strategies, and community to build generational wealth starting with a plan to put your kids in a home before they ever ask for help.
             </p>
             <div className="cta-button-row" style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 48 }}>
-              <button className="cta-btn" style={{ padding: "15px 32px", borderRadius: 12, border: "none", background: "linear-gradient(135deg,#C9973A,#A07828)", color: "#0D1B2E", fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: 15, boxShadow: "0 8px 32px rgba(201,151,58,0.3)", }} onClick={() => { window.location.href = '/free-tools'; }}>Start With Free Tools </button>
+              <button className="cta-btn" style={{ padding: "15px 32px", borderRadius: 12, border: "none", background: "linear-gradient(135deg,#C9973A,#A07828)", color: "#0D1B2E", fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: 15, boxShadow: "0 8px 32px rgba(201,151,58,0.3)", }} onClick={() => { var el = document.getElementById('free-tools'); if (el) el.scrollIntoView({behavior:'smooth'}); }}>Start With Free Tools </button>
               <button className="cta-btn" style={{ padding: "15px 32px", borderRadius: 12, border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.04)", color: "#CBD5E8", fontFamily: "'DM Sans',sans-serif", fontWeight: 500, fontSize: 15, cursor: "pointer", }}>Listen to the Podcast</button>
               <button className="cta-btn" onClick={() => window.open("https://app.buyyourkidsahouse.com", "_blank")} style={{ padding: "15px 32px", borderRadius: 12, border: "none", background: "#C9973A", color: "#0A1628", fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: 15, boxShadow: "0 8px 32px rgba(201,151,58,0.3)" }}>Launch the App</button>
             </div>
@@ -507,7 +507,7 @@ export default function Website() {
       </section>
 
       {/* FREE TOOLS */}
-      <section className="section-pad" style={{ padding: "100px 40px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+      <section id="free-tools" className="section-pad" style={{ padding: "100px 40px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
         <div style={{ maxWidth: 1140, margin: "0 auto" }}>
           <FadeIn>
             <div style={{ textAlign: "center", marginBottom: 64 }}>
@@ -525,7 +525,7 @@ export default function Website() {
                   <div style={{ fontSize: 32, marginBottom: 14 }}>{tool.icon}</div>
                   <h3 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 26, color: "#E8D5A3", fontWeight: 700, marginBottom: 10 }}>{tool.title}</h3>
                   <p style={{ fontSize: 14, color: "#5A6B85", lineHeight: 1.7, marginBottom: 28 }}>{tool.desc}</p>
-                  <EmailCapture label="Download Free" placeholder="Enter your email" dark formId={MAILCHIMP_LIST_ID} successMessage=" Check your inbox your tool is on its way!" />
+                  <EmailCapture label="Download Free" placeholder="Enter your email" dark formId={MAILCHIMP_LIST_ID} redirectUrl="/free-tools" />
                 </div>
               </FadeIn>
             ))}
@@ -732,7 +732,7 @@ export default function Website() {
             </h2>
             <p style={{ fontSize: 16, color: "#5A6B85", lineHeight: 1.75, marginBottom: 44 }}>Download the free tools, listen to the podcast, and build the plan that changes your family's future.</p>
             <div className="cta-button-row" style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-              <button className="cta-btn" style={{ padding: "16px 40px", borderRadius: 12, border: "none", background: "linear-gradient(135deg,#C9973A,#A07828)", color: "#0D1B2E", fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: 16, boxShadow: "0 8px 32px rgba(201,151,58,0.35)", }} onClick={() => { window.location.href = '/free-tools'; }}>Get the Free Tools </button>
+              <button className="cta-btn" style={{ padding: "16px 40px", borderRadius: 12, border: "none", background: "linear-gradient(135deg,#C9973A,#A07828)", color: "#0D1B2E", fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: 16, boxShadow: "0 8px 32px rgba(201,151,58,0.35)", }} onClick={() => { var el = document.getElementById('free-tools'); if (el) el.scrollIntoView({behavior:'smooth'}); }}>Get the Free Tools </button>
               <button className="cta-btn" style={{ padding: "16px 40px", borderRadius: 12, border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.04)", color: "#CBD5E8", fontFamily: "'DM Sans',sans-serif", fontWeight: 500, fontSize: 16, cursor: "pointer", }}>Try the App Free</button>
             </div>
           </FadeIn>
