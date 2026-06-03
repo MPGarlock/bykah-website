@@ -452,7 +452,7 @@ export default function Website() {
               The tools, strategies, and community to build generational wealth starting with a plan to put your kids in a home before they ever ask for help.
             </p>
             <div className="cta-button-row" style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 48 }}>
-              <button className="cta-btn" style={{ padding: "15px 32px", borderRadius: 12, border: "none", background: "linear-gradient(135deg,#C9973A,#A07828)", color: "#0D1B2E", fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: 15, boxShadow: "0 8px 32px rgba(201,151,58,0.3)", }}>Start With Free Tools </button>
+              <button className="cta-btn" style={{ padding: "15px 32px", borderRadius: 12, border: "none", background: "linear-gradient(135deg,#C9973A,#A07828)", color: "#0D1B2E", fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: 15, boxShadow: "0 8px 32px rgba(201,151,58,0.3)", }} onClick={() => { window.location.href = '/free-tools'; }}>Start With Free Tools </button>
               <button className="cta-btn" style={{ padding: "15px 32px", borderRadius: 12, border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.04)", color: "#CBD5E8", fontFamily: "'DM Sans',sans-serif", fontWeight: 500, fontSize: 15, cursor: "pointer", }}>Listen to the Podcast</button>
               <button className="cta-btn" onClick={() => window.open("https://app.buyyourkidsahouse.com", "_blank")} style={{ padding: "15px 32px", borderRadius: 12, border: "none", background: "#C9973A", color: "#0A1628", fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: 15, boxShadow: "0 8px 32px rgba(201,151,58,0.3)" }}>Launch the App</button>
             </div>
@@ -728,7 +728,7 @@ export default function Website() {
             </h2>
             <p style={{ fontSize: 16, color: "#5A6B85", lineHeight: 1.75, marginBottom: 44 }}>Download the free tools, listen to the podcast, and build the plan that changes your family's future.</p>
             <div className="cta-button-row" style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-              <button className="cta-btn" style={{ padding: "16px 40px", borderRadius: 12, border: "none", background: "linear-gradient(135deg,#C9973A,#A07828)", color: "#0D1B2E", fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: 16, boxShadow: "0 8px 32px rgba(201,151,58,0.35)", }}>Get the Free Tools </button>
+              <button className="cta-btn" style={{ padding: "16px 40px", borderRadius: 12, border: "none", background: "linear-gradient(135deg,#C9973A,#A07828)", color: "#0D1B2E", fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: 16, boxShadow: "0 8px 32px rgba(201,151,58,0.35)", }} onClick={() => { window.location.href = '/free-tools'; }}>Get the Free Tools </button>
               <button className="cta-btn" style={{ padding: "16px 40px", borderRadius: 12, border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.04)", color: "#CBD5E8", fontFamily: "'DM Sans',sans-serif", fontWeight: 500, fontSize: 16, cursor: "pointer", }}>Try the App Free</button>
             </div>
           </FadeIn>
